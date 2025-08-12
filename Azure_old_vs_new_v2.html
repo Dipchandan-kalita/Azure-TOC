@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSC Azure Documentation Restructure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-sky-600">RSC Azure Documentation Overhaul</h1>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#problem" class="text-slate-600 hover:text-sky-600">The Problem</a>
+                <a href="#solution" class="text-slate-600 hover:text-sky-600">The Solution</a>
+                <a href="#comparison" class="text-slate-600 hover:text-sky-600">Side-by-Side</a>
+                <a href="#benefits" class="text-slate-600 hover:text-sky-600">The Benefits</a>
+                <a href="#quiz" class="text-slate-600 hover:text-sky-600">Feedback Quiz</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <section id="intro" class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4 text-slate-900">From Feature List to User Journey</h2>
+            <p class="text-lg text-slate-600 max-w-3xl mx-auto">We've reimagined our Microsoft Azure documentation to better align with how you work. This infographic highlights our strategic shift from a traditional, feature-based Table of Contents (TOC) to a modern, task-oriented lifecycle approach.</p>
+        </section>
+
+        <section id="problem" class="mb-16">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h3 class="text-3xl font-bold text-center mb-8 text-rose-600">The Old Way: A Maze of Features</h3>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-slate-600 mb-6">The previous TOC was a comprehensive list of features, but it lacked a clear path for users. This led to a disjointed experience, especially for those new to RSC, forcing them to piece together information from multiple sections to complete a single task.</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="text-rose-500 text-2xl mr-3">✖️</span>
+                                <div><strong class="text-slate-700">Unstructured Flow:</strong> Concepts and procedures were mixed, making it hard to follow a logical sequence.</div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-rose-500 text-2xl mr-3">✖️</span>
+                                <div><strong class="text-slate-700">High Cognitive Load:</strong> Users had to navigate a long, flat list of topics, increasing the effort to find information.</div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-rose-500 text-2xl mr-3">✖️</span>
+                                <div><strong class="text-slate-700">Poor Discoverability:</strong> Critical planning and architectural guidance were buried, leading to potential misconfigurations.</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="oldTocComposition"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="mb-16">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h3 class="text-3xl font-bold text-center mb-8 text-sky-600">The New Way: A Guided Journey</h3>
+                <p class="text-slate-600 text-center max-w-3xl mx-auto mb-10">Our new task-oriented TOC is structured around the typical user lifecycle. It provides a clear, step-by-step roadmap from initial planning to ongoing management, ensuring a seamless and intuitive experience.</p>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="chart-container">
+                        <canvas id="newTocComposition"></canvas>
+                    </div>
+                    <div>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="text-sky-500 text-2xl mr-3">✔️</span>
+                                <div><strong class="text-slate-700">Logical Progression:</strong> Content is organized by workflow stages: Plan ➡️ Setup ➡️ Protect ➡️ Recover ➡️ Manage.</div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-sky-500 text-2xl mr-3">✔️</span>
+                                <div><strong class="text-slate-700">Task-Focused:</strong> Headings are action-oriented, helping users quickly find what they need to do.</div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-sky-500 text-2xl mr-3">✔️</span>
+                                <div><strong class="text-slate-700">Quick Access:</strong> A "Quick Links" section at the top provides immediate access to common tasks for experienced users.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison" class="mb-16">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h3 class="text-3xl font-bold text-center mb-8 text-slate-900">Key Structural Changes at a Glance</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr>
+                                <th class="border-b-2 border-slate-200 p-4 text-lg font-semibold text-rose-600">Old Approach: Feature-Based</th>
+                                <th class="border-b-2 border-slate-200 p-4 text-lg font-semibold text-sky-600">New Approach: Task-Oriented Lifecycle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-slate-200">
+                                <td class="p-4 align-top">Organized by broad features and concepts (e.g., "Key features," "Common terms").</td>
+                                <td class="p-4 align-top">Organized by a clear, sequential lifecycle (e.g., "Planning," "Setup," "Recovery").</td>
+                            </tr>
+                            <tr class="border-b border-slate-200">
+                                <td class="p-4 align-top"><strong>Mixed Content:</strong> Conceptual overviews were intermingled with procedural sections.</td>
+                                <td class="p-4 align-top"><strong>Centralized Reference:</strong> Foundational concepts and a workflow overview are consolidated at the beginning.</td>
+                            </tr>
+                            <tr class="border-b border-slate-200">
+                                <td class="p-4 align-top"><strong>Unstructured Flow:</strong> Less intuitive for new users who needed a linear implementation process.</td>
+                                <td class="p-4 align-top"><strong>Logical Progression:</strong> The structure follows a natural path for new users and is easy to follow.</td>
+                            </tr>
+                            <tr class="border-b border-slate-200">
+                                <td class="p-4 align-top"><strong>Deeply Nested:</strong> Specific service content was often at the bottom, disconnected from the main workflow.</td>
+                                <td class="p-4 align-top"><strong>Clear Grouping:</strong> All related tasks for a stage (e.g., deploying Exocompute) are logically grouped under a single, high-level section.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 align-top"><strong>Lower Readability:</strong> A long, flat list of topics made it difficult to quickly scan for information.</td>
+                                <td class="p-4 align-top"><strong>Enhanced Readability:</strong> The hierarchical structure makes it easy to scan and quickly understand the relationship between topics.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="benefits" class="mb-16">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h3 class="text-3xl font-bold text-center mb-8 text-slate-900">The Impact: A Better User Experience</h3>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-slate-600 mb-6">By aligning our documentation with your workflow, we're not just reorganizing content—we're enhancing your entire experience with RSC. This new structure is designed to empower you to find information faster, complete tasks more efficiently, and build confidence in your data protection strategy.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <span class="text-3xl mr-4">🚀</span>
+                                <p><strong class="text-slate-700">Faster Onboarding:</strong> New users can follow a clear path to success.</p>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-3xl mr-4">💡</span>
+                                <p><strong class="text-slate-700">Reduced Errors:</strong> Logical grouping of prerequisites and setup steps minimizes misconfigurations.</p>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-3xl mr-4">✅</span>
+                                <p><strong class="text-slate-700">Improved Efficiency:</strong> Experienced users can quickly access specific tasks without navigating through unnecessary content.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="userSatisfactionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz" class="mb-16">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h3 class="text-3xl font-bold text-center mb-8 text-slate-900">Stakeholder Feedback Quiz</h3>
+                <p class="text-slate-600 text-center max-w-3xl mx-auto mb-10">Help us validate our new documentation approach by answering the following questions. Your feedback is invaluable!</p>
+                <form class="space-y-8">
+                    <div>
+                        <h4 class="text-xl font-bold text-sky-600 mb-2">Question 1</h4>
+                        <p class="text-slate-700">Does the new TOC provide a clear and logical path for a new user setting up Azure protection for the first time?</p>
+                        <textarea name="answer-1" id="answer-1" rows="4" class="w-full mt-4 p-3 border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-sky-600 mb-2">Question 2</h4>
+                        <p class="text-slate-700">Do the new section titles, like "Plan your Azure protection deployment" and "Recover Azure workloads," accurately reflect the content you would expect to find there?</p>
+                        <textarea name="answer-2" id="answer-2" rows="4" class="w-full mt-4 p-3 border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-sky-600 mb-2">Question 3</h4>
+                        <p class="text-slate-700">For experienced users who need to quickly find a specific task (e.g., "how to restore a managed disk"), do the "Quick links" or the task-oriented headings make it easier to locate that information compared to the old TOC?</p>
+                        <textarea name="answer-3" id="answer-3" rows="4" class="w-full mt-4 p-3 border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-sky-600 mb-2">Question 4</h4>
+                        <p class="text-slate-700">Do you find the separation of content into logical stages—Planning, Setup, Protection, and Recovery—more helpful than the previous feature-based organization? Why or why not?</p>
+                        <textarea name="answer-4" id="answer-4" rows="4" class="w-full mt-4 p-3 border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-sky-600 mb-2">Question 5</h4>
+                        <p class="text-slate-700">Are there any specific topics you feel are in the wrong place or that could be combined or split to improve clarity?</p>
+                        <textarea name="answer-5" id="answer-5" rows="4" class="w-full mt-4 p-3 border border-slate-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+                    </div>
+                    <button type="submit" class="bg-sky-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-sky-700 transition-colors mt-8">Submit Feedback</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Rubrik. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            } else {
+                return label;
+            }
+        };
+
+        const chartColors = {
+            rose: '#e11d48',
+            sky: '#0284c7',
+            amber: '#f59e0b',
+            emerald: '#10b981',
+            slate: '#475569'
+        };
+
+        const oldTocCtx = document.getElementById('oldTocComposition').getContext('2d');
+        new Chart(oldTocCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Conceptual Overviews', 'Setup Procedures', 'Recovery Information', 'Service-Specific Details'],
+                datasets: [{
+                    label: 'Content Distribution',
+                    data: [30, 25, 15, 30],
+                    backgroundColor: [chartColors.rose, chartColors.amber, chartColors.slate, chartColors.sky],
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Old TOC: Content Mix',
+                        font: { size: 16 }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        const newTocCtx = document.getElementById('newTocComposition').getContext('2d');
+        new Chart(newTocCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Planning & Intro', 'Setup & Deployment', 'Protection & Recovery', 'Management & Quick Links'],
+                datasets: [{
+                    label: 'Content Distribution',
+                    data: [20, 30, 35, 15],
+                    backgroundColor: [chartColors.emerald, chartColors.sky, chartColors.amber, chartColors.slate],
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'New TOC: Task-Oriented Flow',
+                        font: { size: 16 }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        const userSatisfactionCtx = document.getElementById('userSatisfactionChart').getContext('2d');
+        new Chart(userSatisfactionCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Ease of Finding Info', 'Task Completion Speed', ['Clarity of', 'Workflow']],
+                datasets: [{
+                    label: 'Old TOC',
+                    data: [45, 50, 35],
+                    backgroundColor: chartColors.rose,
+                    borderColor: chartColors.rose,
+                    borderWidth: 1
+                }, {
+                    label: 'New TOC (Projected)',
+                    data: [85, 90, 95],
+                    backgroundColor: chartColors.sky,
+                    borderColor: chartColors.sky,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%'
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Projected Improvement in User Satisfaction',
+                        font: { size: 16 }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
