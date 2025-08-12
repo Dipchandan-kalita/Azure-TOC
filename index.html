@@ -110,8 +110,8 @@
                     <table class="w-full text-left border-collapse">
                         <thead>
                             <tr>
-                                <th class="border-b-2 border-slate-200 p-4 text-lg font-semibold text-rose-600">Old Approach: Feature-Based</th>
-                                <th class="border-b-2 border-slate-200 p-4 text-lg font-semibold text-sky-600">New Approach: Task-Oriented Lifecycle</th>
+                                <th class="border-b-2 border-slate-200 p-4 text-lg font-semibold text-rose-600" href="https://docs.rubrik.com/en-us/saas/saas/azr_workloads.html">Old Approach: Feature-Based</th>
+                                <th class="border-b-2 border-slate-200 p-4 text-lg font-semibold text-sky-600" href="https://stage-docs.rubrik.com/en-us/saas/saas/azr_workloads.html">New Approach: Task-Oriented Lifecycle</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -171,12 +171,9 @@
 
         <section id="quiz" class="mb-16">
             <div class="bg-white rounded-lg shadow-lg p-8">
-                <h3 class="text-3xl font-bold text-center mb-8 text-slate-900">Stakeholder Feedback Quiz</h3>
+                <h3 class="text-3xl font-bold text-center mb-8 text-slate-900">Feedback</h3>
                 <p class="text-slate-600 text-center max-w-3xl mx-auto mb-10">Help us validate our new documentation approach by answering the following questions. Your feedback is invaluable!</p>
-                <!-- Formspree Integration: The form now uses the Formspree service to submit data to an email address. -->
-                <!-- The 'action' URL below should be replaced with your unique Formspree endpoint after setting it up. -->
-                <!-- A hidden input field is used to specify the recipient email address. -->
-                <form id="feedbackForm" action="https://formspree.io/f/meozngey" method="POST" class="space-y-8">
+                <form class="space-y-8">
                     <div>
                         <h4 class="text-xl font-bold text-sky-600 mb-2">Question 1</h4>
                         <p class="text-slate-700">Does the new TOC provide a clear and logical path for a new user setting up Azure protection for the first time?</p>
@@ -204,11 +201,6 @@
                     </div>
                     <button type="submit" class="bg-sky-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-sky-700 transition-colors mt-8">Submit Feedback</button>
                 </form>
-                <!-- Success message container, initially hidden -->
-                <div id="successMessage" class="hidden text-center mt-8 p-6 bg-emerald-50 text-emerald-800 border-2 border-emerald-300 rounded-lg shadow-md">
-                    <p class="text-xl font-bold mb-2">Thank you!</p>
-                    <p>Your feedback has been successfully submitted. We appreciate your input!</p>
-                </div>
             </div>
         </section>
     </main>
@@ -354,47 +346,6 @@
                         }
                     }
                 }
-            }
-        });
-
-        // Formspree Integration Script
-        const form = document.getElementById('feedbackForm');
-        const successMessage = document.getElementById('successMessage');
-
-        form.addEventListener('submit', async (event) => {
-            // Prevent the default form submission which would reload the page
-            event.preventDefault();
-
-            // Hide the form and show a loading message
-            form.style.display = 'none';
-
-            // Collect the form data
-            const formData = new FormData(form);
-
-            try {
-                // Send the form data to the Formspree endpoint
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    // On success, show the success message
-                    successMessage.classList.remove('hidden');
-                } else {
-                    // On failure, show an error and re-display the form
-                    console.error('Form submission failed.');
-                    form.style.display = 'block';
-                    alert('There was an error submitting your feedback. Please try again.');
-                }
-            } catch (error) {
-                // Handle network errors
-                console.error('Network error:', error);
-                form.style.display = 'block';
-                alert('There was a network error. Please check your connection and try again.');
             }
         });
     </script>
