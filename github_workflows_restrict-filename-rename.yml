@@ -1,0 +1,21 @@
+name: Restrict File Rename
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  restrict-file-rename:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for file rename
+        run: |
+          FILE="important-file.txt"
+          # Find renamed files (lines starting with R)
+          RENAMED=$(git diff --name-status origin/${{ github.base_ref }}...origin/${{ github.head_ref }} | grep "^R" | awk '{print $3, $4}')
+          if [[ -n "$RENAMED" ]] && echo "$RENAMED" | grep -q "$FILE"; then
+            echo "ERROR: Renaming $FILE is not allowed!"
+            exit 1
+          fi
